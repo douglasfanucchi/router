@@ -1,0 +1,19 @@
+{
+    "name": "fanucchi/router",
+    "description": "MVC router system",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Douglas Fanucchi",
+            "email": "douglasfanucchi@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload":{
+        "psr-4": {
+            "fanucchi\\Router\\":"src"
+        }
+    }
+}
