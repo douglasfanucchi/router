@@ -9,7 +9,7 @@ namespace fanucchi\Router;
 use fanucchi\Router\Interfaces\RouterInterface;
 
 class Router implements RouterInterface {
-    private $instace = null, $get_routes = [], $post_routes = [], $put_routes = [], $delete_routes = [];
+    private static $instance = null, $get_routes = [], $post_routes = [], $put_routes = [], $delete_routes = [];
 
     private function __construct() {}
 

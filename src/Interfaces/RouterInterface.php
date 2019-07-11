@@ -7,7 +7,6 @@
 namespace fanucchi\Router\Interfaces;
 
 interface RouterInterface{
-    function getInstance() : Router;
     function get() : bool;
     function post() : bool;
     function put() : bool;
