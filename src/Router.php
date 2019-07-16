@@ -30,7 +30,15 @@ class Router implements RouterInterface {
         return self::registerRoute("get", $route, $controllerAction);
     }
 
-    public function post() : bool {}
+    /**
+     * Register Route/Controller@Action in the self::$post_routes
+     * @param String $route - The route to be accessed
+     * @param String $controllerAction - The Controller@Action to be called
+     * @return bool
+     */
+    public function post(String $route, String $controllerAction) : bool {
+        return self::$registerRoute("put", $route, $controllerAction);
+    }
     public function put() : bool {}
     public function delete() : bool {}
     
