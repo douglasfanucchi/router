@@ -25,6 +25,36 @@ class Router implements RouterInterface {
     public function put() : bool {}
     public function delete() : bool {}
     
+    /**
+     * Register Route/Controller@Action in a certain array which represents the request method routes.
+     * @param String $reqMethod - Request method, used to identify which array the info should be saved.
+     * @param String $route - The route to be accessed
+     * @param String $controllerAction - Controller@Action to be called
+     */
+    private function registerRoute(String $reqMethod, String $route, String $controllerAction) : bool {
+        if( empty($reqMethod) || empty($route) || empty($controllerAction) || !preg_match("/\@/", $controllerAction) || !preg_match("/\//", $route) ) 
+            return false;
+
+        switch( $reqMethod ) {
+            case 'get':
+                self::$get_routes[] = [$route => $controllerAction];
+                break;
+            case 'post':
+                self::$post_routes[] = [$route => $controllerAction];
+                break;
+            case 'put':
+                self::$put_routes[] = [$route => $controllerAction];
+                break;
+            case 'delete':
+                self::$delete_routes[] = [$route => $controllerAction];
+                break;
+            default:
+                return false;
+        }
+
+        return true;
+    }
+
     private function getRequestMethod() : String {
         return $_SERVER["REQUEST_METHOD"];
     }
