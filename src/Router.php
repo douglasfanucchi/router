@@ -39,6 +39,7 @@ class Router implements RouterInterface {
      * @param String $reqMethod - Request method, used to identify which array the info should be saved.
      * @param String $route - The route to be accessed
      * @param String $controllerAction - Controller@Action to be called
+     * @return bool
      */
     private function registerRoute(String $reqMethod, String $route, String $controllerAction) : bool {
         if( empty($reqMethod) || empty($route) || empty($controllerAction) || !preg_match("/\@/", $controllerAction) || !preg_match("/\//", $route) ) 
