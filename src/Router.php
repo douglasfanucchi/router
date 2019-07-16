@@ -47,7 +47,7 @@ class Router implements RouterInterface {
      * @return bool
      */
     public function put(String $route, String $controllerAction) : bool {
-        self::registerRoute("put", $route, $controllerAction);
+        return self::registerRoute("put", $route, $controllerAction);
     }
 
     /**
