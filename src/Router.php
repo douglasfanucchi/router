@@ -49,7 +49,16 @@ class Router implements RouterInterface {
     public function put(String $route, String $controllerAction) : bool {
         self::registerRoute("put", $route, $controllerAction);
     }
-    public function delete() : bool {}
+
+    /**
+     * Register Route/Controller@Action in the self::$delete_routes
+     * @param String $route - The route to be accessed
+     * @param String $controllerAction - The Controller@Action to be called
+     * @return bool
+     */
+    public function delete(String $route, String $controllerAction) : bool {
+        return self::$registerRoute("delete", $route, $controllerAction);
+    }
     
     /**
      * Register Route/Controller@Action in a certain array which represents the request method routes.
