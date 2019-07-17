@@ -21,6 +21,28 @@ class Router implements RouterInterface {
     }
 
     /**
+     * Identifies which Controller@Action to call depending on the $uri
+     * @param String $uri - Route being accessed
+     * @return bool - Wheter or not the route matched
+     */
+    public function parser(String &$uri) : bool {
+        $routes = $this->getRoutes( $this->getRequestMethod() );
+
+        if( empty($routes) )
+            return false;
+
+        foreach( $routes as $route => $controllerAction ) {
+            $regex = $this->getRouteRegex($route);
+
+            if( preg_match($regex, $uri, $params) ) {
+                $this->changeUri($uri, $controllerAction, $params);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
      * Register Route/Controller@Action in the self::$get_routes
      * @param String $route - The route to be accessed
      * @param String $controllerAction - The Controller@Action to be called
