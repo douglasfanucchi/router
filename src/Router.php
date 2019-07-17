@@ -147,6 +147,15 @@ class Router implements RouterInterface {
         return "/^" . $route . "$/";
     }
 
+    private function changeUri(Sting $uri, String $controllerAction, Array $params) : void {
+        array_shift($params);
+
+        foreach($params as $param)
+            $controllerAction = preg_replace("/(\:[A-z0-9]{1,})/", $param, $controllerAction, 1);
+
+        $uri = $controllerAction;
+    }
+
     private function getRequestMethod() : String {
         return $_SERVER["REQUEST_METHOD"];
     }
