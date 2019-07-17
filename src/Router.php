@@ -147,7 +147,7 @@ class Router implements RouterInterface {
         return "/^" . $route . "$/";
     }
 
-    private function changeUri(Sting &$uri, String $controllerAction, Array $params) : void {
+    private function changeUri(String &$uri, String $controllerAction, Array $params) : void {
         array_shift($params);
 
         foreach($params as $param)
