@@ -90,6 +90,29 @@ class Router implements RouterInterface {
 
         return true;
     }
+    
+    /**
+     * Get routes according to the Request method
+     * @param String $reqMethod - Request method
+     * @return Array
+     */
+    private function getRoutes(String $reqMethod) : Array {
+        if( empty($reqMethod) )
+            return [];
+
+        switch( $reqMethod ) {
+            case 'GET':
+               return self::$get_routes;
+            case 'POST':
+               return  self::$post_routes;
+            case 'PUT':
+               return  self::$put_routes;
+            case 'DELETE':
+               return  self::$delete_routes;
+            default:
+                return [];
+        }
+    }
 
     private function getRequestMethod() : String {
         return $_SERVER["REQUEST_METHOD"];
