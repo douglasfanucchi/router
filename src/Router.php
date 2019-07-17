@@ -136,6 +136,17 @@ class Router implements RouterInterface {
         }
     }
 
+    /**
+     * Make a regex pattern based on $route
+     * @param String $route - Route 
+     * @return String
+     */
+    private function getRouteRegex(String $route) : String {
+        $route = preg_replace("/\{[A-z0-9]{1,}\}/", "([A-z0-9]{1,})", $route);
+        $route = preg_replace("/\//", "\/", $route);
+        return "/^" . $route . "$/";
+    }
+
     private function getRequestMethod() : String {
         return $_SERVER["REQUEST_METHOD"];
     }
