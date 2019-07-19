@@ -7,8 +7,8 @@
 namespace fanucchi\Router\Interfaces;
 
 interface RouterInterface{
-    function get() : bool;
-    function post() : bool;
-    function put() : bool;
-    function delete() : bool;
+    function get(String $route, String $controllerAction) : bool;
+    function post(String $route, String $controllerAction) : bool;
+    function put(String $route, String $controllerAction) : bool;
+    function delete(String $route, String $controllerAction) : bool;
 }
