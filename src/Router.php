@@ -49,7 +49,7 @@ class Router implements RouterInterface {
      * @return bool
      */
     public function get(String $route, String $controllerAction) : bool {
-        return self::registerRoute("get", $route, $controllerAction);
+        return $this->registerRoute("get", $route, $controllerAction);
     }
 
     /**
@@ -59,7 +59,7 @@ class Router implements RouterInterface {
      * @return bool
      */
     public function post(String $route, String $controllerAction) : bool {
-        return self::registerRoute("put", $route, $controllerAction);
+        return $this->registerRoute("put", $route, $controllerAction);
     }
 
     /**
@@ -69,7 +69,7 @@ class Router implements RouterInterface {
      * @return bool
      */
     public function put(String $route, String $controllerAction) : bool {
-        return self::registerRoute("put", $route, $controllerAction);
+        return $this->registerRoute("put", $route, $controllerAction);
     }
 
     /**
@@ -79,7 +79,7 @@ class Router implements RouterInterface {
      * @return bool
      */
     public function delete(String $route, String $controllerAction) : bool {
-        return self::registerRoute("delete", $route, $controllerAction);
+        return $this->registerRoute("delete", $route, $controllerAction);
     }
     
     /**
