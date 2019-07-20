@@ -95,16 +95,16 @@ class Router implements RouterInterface {
 
         switch( $reqMethod ) {
             case 'get':
-                self::$get_routes[] = [$route => $controllerAction];
+                self::$get_routes[$route] = $controllerAction;
                 break;
             case 'post':
-                self::$post_routes[] = [$route => $controllerAction];
+                self::$post_routes[$route] = $controllerAction;
                 break;
             case 'put':
-                self::$put_routes[] = [$route => $controllerAction];
+                self::$put_routes[$route] = $controllerAction;
                 break;
             case 'delete':
-                self::$delete_routes[] = [$route => $controllerAction];
+                self::$delete_routes[$route] = $controllerAction;
                 break;
             default:
                 return false;
