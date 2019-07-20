@@ -59,7 +59,7 @@ class Router implements RouterInterface {
      * @return bool
      */
     public function post(String $route, String $controllerAction) : bool {
-        return $this->registerRoute("put", $route, $controllerAction);
+        return $this->registerRoute("post", $route, $controllerAction);
     }
 
     /**
